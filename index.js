@@ -20,8 +20,8 @@ server.get("/fuzzy-search", (req, res) => {
     const options = {
         // Configura las opciones de búsqueda difusa con Fuse.js
         shouldSort: true,
-        threshold: 0.6,
-        keys: ["nombre"], // Reemplaza 'nombre' con el nombre del campo en tus datos que deseas buscar
+        threshold: 0.3,
+        keys: ["nom_producto"], // Reemplaza 'nombre' con el nombre del campo en tus datos que deseas buscar
     };
 
     const fuse = new Fuse(data, options);

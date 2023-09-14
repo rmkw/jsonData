@@ -1,6 +1,5 @@
 const jsonServer = require("json-server"); // importing json-server library
-const Fuse = require("fuse.js");
-const soundex = require("soundex");
+const DoubleMetaphone = require("double-metaphone");
 
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
@@ -20,18 +19,13 @@ server.get("/fuzzy-search", (req, res) => {
     }
 
     const data = router.db.getState().products; // Reemplaza 'yourData' con el nombre de tu colección de datos
-    //!metodo de fuze 
-    // const options = {
-    //     // Configura las opciones de búsqueda difusa con Fuse.js
-    //     shouldSort: true,
-    //     threshold: 0.3,
-    //     keys: ["nom_producto"], // Reemplaza 'nombre' con el nombre del campo en tus datos que deseas buscar
-    // };
-
-    // const fuse = new Fuse(data, options);
-    // const result = fuse.search(query);
-    //! Realiza una búsqueda fonética utilizando soundex
-    const result = data.filter(item => soundex(item.nom_producto) === soundex(query));
+    const doubleMetaphone = new DoubleMetaphone();
+    
+    // Realiza una búsqueda fonética utilizando Double Metaphone
+    const result = data.filter(item => {
+        const metaphones = doubleMetaphone.process(item.nom_producto);
+        return metaphones.some(metaphone => metaphone === doubleMetaphone.process(query));
+    });
 
 
     res.json(result);

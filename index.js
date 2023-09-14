@@ -1,5 +1,6 @@
 const jsonServer = require("json-server"); // importing json-server library
-const DoubleMetaphone = require("double-metaphone");
+const Fuse = require("fuse.js"); // Importa la librería fuse.js
+
 
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
@@ -7,29 +8,35 @@ const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 8080; //  chose port from here like 8080, 3001
 
 server.use(middlewares);
-server.use(jsonServer.bodyParser); // Agrega el middleware bodyParser para manejar datos POST
+server.use(jsonServer.bodyParser);
 
-// Define una nueva ruta para la búsqueda difusa
 server.get("/fuzzy-search", (req, res) => {
-    
-    const query = req.query.q; // Obtiene el término de búsqueda desde la URL
+    const query = req.query.q;
     if (!query) {
         res.status(400).json({ error: "El parámetro 'q' es requerido" });
         return;
     }
 
-    const data = router.db.getState().products; // Reemplaza 'yourData' con el nombre de tu colección de datos
-    const doubleMetaphone = new DoubleMetaphone();
-    
-    // Realiza una búsqueda fonética utilizando Double Metaphone
-    const result = data.filter(item => {
-        const metaphones = doubleMetaphone.process(item.nom_producto);
-        return metaphones.some(metaphone => metaphone === doubleMetaphone.process(query));
-    });
+    const data = router.db.getState().products;
 
+    // Configura las opciones de fuse.js
+    const options = {
+        includeScore: true,
+        keys: ["nom_producto"], // Especifica el campo en el que deseas buscar
+        threshold: 0.4, // Ajusta este umbral según tu preferencia
+    };
 
+    // Crea una instancia de fuse.js con los datos y las opciones
+    const fuse = new Fuse(data, options);
+
+    // Realiza la búsqueda difusa
+    const result = fuse.search(query);
+
+    // Devuelve los resultados
     res.json(result);
 });
+
+
 server.use(router);
 
 server.listen(port, () => {

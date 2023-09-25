@@ -19,6 +19,13 @@ server.get("/fuzzy-search", (req, res) => {
 
     const data = router.db.getState().products;
 
+    //! Si no se proporciona un término de búsqueda, devuelve todos los productos
+    if (!query) {
+        res.json(data);
+        return;
+    }
+
+
     // Configura las opciones de fuse.js
     const options = {
         includeScore: true,

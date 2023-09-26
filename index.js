@@ -39,8 +39,14 @@ server.get("/fuzzy-search", (req, res) => {
     // Realiza la búsqueda difusa
     const result = fuse.search(query);
 
+    // Quita los campos refIndex y score de cada objeto en el resultado
+    const cleanedResult = result.map(item => {
+        // Crea un nuevo objeto copiando todo el objeto item
+        return { ...item.item };
+    });
+
     // Devuelve los resultados
-    res.json(result);
+    res.json(cleanedResult);
 });
 
 

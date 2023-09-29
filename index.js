@@ -1,11 +1,10 @@
-const jsonServer = require("json-server"); // importing json-server library
-const Fuse = require("fuse.js"); // Importa la librería fuse.js
-
+const jsonServer = require("json-server");
+const Fuse = require("fuse.js");
 
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
-const port = process.env.PORT || 8080; //  chose port from here like 8080, 3001
+const port = process.env.PORT || 8080;
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
@@ -17,38 +16,27 @@ server.get("/fuzzy-search", (req, res) => {
         return;
     }
 
-    const data = router.db.getState().products;
+    const productsData = router.db.getState().products;
+    const variablesData = router.db.getState().secuencia_var;
 
-    //! Si no se proporciona un término de búsqueda, devuelve todos los productos
-    if (!query) {
-        res.json(data);
-        return;
-    }
-
-
-    // Configura las opciones de fuse.js
-    const options = {
+    // Búsqueda difusa en la colección de variables (secuencia_var)
+    const variableOptions = {
         includeScore: true,
-        keys: ["nom_producto"], // Especifica el campo en el que deseas buscar
-        threshold: 0.4, // Ajusta este umbral según tu preferencia
+        keys: ["nom_var"],
+        threshold: 0.4,
     };
 
-    // Crea una instancia de fuse.js con los datos y las opciones
-    const fuse = new Fuse(data, options);
+    const variableFuse = new Fuse(variablesData, variableOptions);
+    const variableResult = variableFuse.search(query);
 
-    // Realiza la búsqueda difusa
-    const result = fuse.search(query);
+    // Obtener los interview__id de los resultados de variables
+    const variableInterviewIds = variableResult.map(item => item.item.interview__id);
 
-    // Quita los campos refIndex y score de cada objeto en el resultado
-    const cleanedResult = result.map(item => {
-        // Crea un nuevo objeto copiando todo el objeto item
-        return { ...item.item };
-    });
+    // Filtrar los resultados de productos por interview__id
+    const matchedProducts = productsData.filter(product => variableInterviewIds.includes(product.interview__id));
 
-    // Devuelve los resultados
-    res.json(cleanedResult);
+    res.json(matchedProducts);
 });
-
 
 server.use(router);
 

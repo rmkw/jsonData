@@ -19,6 +19,20 @@ server.get("/fuzzy-search", (req, res) => {
     const productsData = router.db.getState().products;
     const variablesData = router.db.getState().secuencia_var;
 
+
+
+
+    const productOptions = {
+        includeScore: true,
+        keys: ["nom_producto"],
+        threshold: 0.4,
+    };
+
+    const productFuse = new Fuse(productsData, productOptions);
+    const productResult = productFuse.search(query);
+
+    const productInterviewIds = productResult.map(item => item.item);
+
     // Búsqueda difusa en la colección de variables (secuencia_var)
     const variableOptions = {
         includeScore: true,
@@ -34,8 +48,9 @@ server.get("/fuzzy-search", (req, res) => {
 
     // Filtrar los resultados de productos por interview__id
     const matchedProducts = productsData.filter(product => variableInterviewIds.includes(product.interview__id));
+    const combinedResults = [...productInterviewIds, ...matchedProducts];
 
-    res.json(matchedProducts);
+    res.json(combinedResults);
 });
 
 server.use(router);

@@ -16,8 +16,8 @@ server.get("/fuzzy-search", (req, res) => {
         return;
     }
 
-    const productsData = router.db.getState().products;
-    const variablesData = router.db.getState().secuencia_var;
+    const productsData = router.db.getState().producto_coll;
+    const variablesData = router.db.getState().variable_coll;
 
 
 

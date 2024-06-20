@@ -32,8 +32,8 @@
     "dga_aeg": 4
   },
   {
-    "interview__key": "52-20-57-27",
-    "interview__id": "a341fa03cb50403aa024a9fcb73d7dff",
+    "interview__key": "74-81-67-05",
+    "interview__id": "8ccb1418f8544feb9587c021637e32f1",
     "secuencia_aeg__id": 0,
     "dg_aeg": 3,
     "nom_aeg": 4,
@@ -48,8 +48,8 @@
     "dga_aeg": 4
   },
   {
-    "interview__key": "74-81-67-05",
-    "interview__id": "8ccb1418f8544feb9587c021637e32f1",
+    "interview__key": "52-20-57-27",
+    "interview__id": "a341fa03cb50403aa024a9fcb73d7dff",
     "secuencia_aeg__id": 0,
     "dg_aeg": 3,
     "nom_aeg": 4,
@@ -80,6 +80,14 @@
     "dga_aeg": 4
   },
   {
+    "interview__key": "95-23-10-97",
+    "interview__id": "da462e42b3c74a03a2dd952f624228a6",
+    "secuencia_aeg__id": 0,
+    "dg_aeg": 3,
+    "nom_aeg": 4,
+    "dga_aeg": 4
+  },
+  {
     "interview__key": "17-43-58-94",
     "interview__id": "db9b4dba9a5b4cf0bce3637befefce4d",
     "secuencia_aeg__id": 0,
@@ -104,14 +112,6 @@
     "dga_aeg": 4
   },
   {
-    "interview__key": "27-00-12-60",
-    "interview__id": "e24bb902177040039584eccc81714cc3",
-    "secuencia_aeg__id": 0,
-    "dg_aeg": 3,
-    "nom_aeg": 4,
-    "dga_aeg": 4
-  },
-  {
     "interview__key": "12-53-55-11",
     "interview__id": "f25c4e7ff22f440989b5ac140a2384db",
     "secuencia_aeg__id": 0,
@@ -120,16 +120,8 @@
     "dga_aeg": 6
   },
   {
-    "interview__key": "95-23-10-97",
-    "interview__id": "da462e42b3c74a03a2dd952f624228a6",
-    "secuencia_aeg__id": 0,
-    "dg_aeg": 3,
-    "nom_aeg": 4,
-    "dga_aeg": 4
-  },
-  {
-    "interview__key": "81-87-64-60",
-    "interview__id": "f95e6744617f4ded9b67a89680ca7d2c",
+    "interview__key": "27-00-12-60",
+    "interview__id": "e24bb902177040039584eccc81714cc3",
     "secuencia_aeg__id": 0,
     "dg_aeg": 3,
     "nom_aeg": 4,
@@ -146,6 +138,14 @@
   {
     "interview__key": "30-32-94-70",
     "interview__id": "dc7bde71edac4dafb2f2a57ff6d11ed2",
+    "secuencia_aeg__id": 0,
+    "dg_aeg": 3,
+    "nom_aeg": 4,
+    "dga_aeg": 4
+  },
+  {
+    "interview__key": "81-87-64-60",
+    "interview__id": "f95e6744617f4ded9b67a89680ca7d2c",
     "secuencia_aeg__id": 0,
     "dg_aeg": 3,
     "nom_aeg": 4,
@@ -176,14 +176,6 @@
     "dga_aeg": 6
   },
   {
-    "interview__key": "10-95-49-86",
-    "interview__id": "c346c23549404131afc97dd425e8066f",
-    "secuencia_aeg__id": 0,
-    "dg_aeg": 3,
-    "nom_aeg": 7,
-    "dga_aeg": 7
-  },
-  {
     "interview__key": "78-48-86-26",
     "interview__id": "7bc82dbd41894b9299c33fee06a516df",
     "secuencia_aeg__id": 0,
@@ -192,8 +184,8 @@
     "dga_aeg": 7
   },
   {
-    "interview__key": "45-54-14-22",
-    "interview__id": "891c7a31685e4488ba2845dc7910f623",
+    "interview__key": "10-95-49-86",
+    "interview__id": "c346c23549404131afc97dd425e8066f",
     "secuencia_aeg__id": 0,
     "dg_aeg": 3,
     "nom_aeg": 7,
@@ -202,6 +194,14 @@
   {
     "interview__key": "41-19-74-92",
     "interview__id": "0ffa919cf9d84f0ba6ba491714e09c76",
+    "secuencia_aeg__id": 0,
+    "dg_aeg": 3,
+    "nom_aeg": 7,
+    "dga_aeg": 7
+  },
+  {
+    "interview__key": "45-54-14-22",
+    "interview__id": "891c7a31685e4488ba2845dc7910f623",
     "secuencia_aeg__id": 0,
     "dg_aeg": 3,
     "nom_aeg": 7,
@@ -256,11 +256,35 @@
     "dga_aeg": 4
   },
   {
-    "interview__key": "60-38-89-31",
-    "interview__id": "de087c22ec0246168462d3f49539d0a3",
+    "interview__key": "99-38-33-64",
+    "interview__id": "1af8dd50f29e4c4c9be05d88be847930",
     "secuencia_aeg__id": 0,
-    "dg_aeg": 1,
-    "nom_aeg": 1,
-    "dga_aeg": 1
+    "dg_aeg": 3,
+    "nom_aeg": 8,
+    "dga_aeg": 8
+  },
+  {
+    "interview__key": "59-85-76-53",
+    "interview__id": "6261470255b640c095779557cbca1227",
+    "secuencia_aeg__id": 0,
+    "dg_aeg": 3,
+    "nom_aeg": 8,
+    "dga_aeg": 8
+  },
+  {
+    "interview__key": "16-22-65-42",
+    "interview__id": "b449e18999e14b94ac3d579b8243577d",
+    "secuencia_aeg__id": 0,
+    "dg_aeg": 3,
+    "nom_aeg": 8,
+    "dga_aeg": 8
+  },
+  {
+    "interview__key": "89-52-60-91",
+    "interview__id": "64e8e972b37042968a12acff1682cfb9",
+    "secuencia_aeg__id": 0,
+    "dg_aeg": 3,
+    "nom_aeg": 8,
+    "dga_aeg": 8
   }
 ]
